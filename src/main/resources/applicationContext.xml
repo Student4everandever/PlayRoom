@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:playRoom.properties"/>
+
+    <bean id="top"
+          class="ua.training.task2.model.entity.Top" scope="prototype">
+    </bean>
+
+    <bean id="doll"
+          class="ua.training.task2.model.entity.Doll" scope="prototype">
+    </bean>
+
+    <bean id="puzzle"
+          class="ua.training.task2.model.entity.Puzzle" scope="prototype">
+    </bean>
+
+    <bean id="toycar"
+          class="ua.training.task2.model.entity.ToyCar" scope="prototype">
+    </bean>
+
+    <bean id="pencils"
+          class="ua.training.task2.model.entity.Pencils" scope="prototype">
+    </bean>
+
+    <bean id="pyramid"
+          class="ua.training.task2.model.entity.Pyramid" scope="prototype">
+    </bean>
+
+
+    <bean id="playRoom"
+          class="ua.training.task2.model.entity.PlayRoom" scope="prototype">
+          <property name="toyList">
+          <list>
+                <ref bean="doll"/>
+                <ref bean="pencils"/>
+                <ref bean="puzzle"/>
+                <ref bean="pyramid"/>
+                <ref bean="top"/>
+                <ref bean="toycar"/>
+          </list>
+          </property>
+        <property name="name" value="${playRoom.name}"/>
+    </bean>
+</beans>
